@@ -1,65 +1,115 @@
 # INL261-AI-Assisted-Animated-Website-
-📌 About This Project
-This is a fully animated, responsive single-page portfolio website built for Mr. Reason Sithole, Information Technology lecturer at Belgium Campus iTversity. It was created as part of the INL261 Group Project using Claude AI (Artifacts) for code generation and deployed live on GitHub Pages — completely free.
+# 🎓 Mr. Reason Sithole — Animated Lecturer Portfolio
 
-⚠️ Note on Group Participation: This project was completed solely by Naledi Reed. Despite being assigned as a 10-member group project, all remaining group members did not participate in Milestone 2. All code, design, deployment, documentation, and submission work was completed independently by Naledi Reed.
+**Module:** INL261 — Innovation & Leadership  
+**Institution:** Belgium Campus iTversity  
+**Project:** Milestone 2 — Animated Website Build, Deploy & Demonstrate  
+**Live URL:** [https://naledi-reed.github.io/INL261-Milestone-2](https://naledi-reed.github.io/INL261-Milestone-2)  
+**Academic Year:** 2026
 
+---
 
-✨ Website Features
-🎬 Animated Hero - Full-screen particle canvas background, floating SVG avatar of Mr. Sithole, typewriter tagline, animated name reveal
-📊 Stats Strip - Scroll-triggered counting animation — modules, years, students, conferences
-👤 About / Profile - Typing effect bio, glowing teal card, personality badge icons with hover
-📚 Modules & Expertise - 6 CSS 3D hover-to-flip cards revealing full module details
-🎉 Fun Facts & Superpowers - 6 click-to-flip interactive reveal cards
-💬 Quote Wall - 5-quote auto-rotating carousel with dot navigation and arrow controls
-📍 Contact / Connect - Office hours, location, department info, QR code placeholder
+## 📌 About This Project
 
-🛠️ Tech Stack
-Claude.ai (free tier) : AI co-pilot — all code generated via ArtifactsFree
-GitHub : Version control & repository hostingFree
-GitHub Pages : Static site hosting at naledi-reed.github.ioFree
-QR Code Generator : qr-code-generator.com — links to live siteFree
+This is a fully animated, responsive single-page portfolio website built for **Mr. Reason Sithole**, Information Technology lecturer at Belgium Campus iTversity. It was created entirely using **Claude AI (Artifacts)** as part of the INL261 Group Project and deployed live on **GitHub Pages** — completely free.
 
-📁 Repository Structure
-INL261-Milestone-2/
-├── index.html       ← Complete single-page portfolio (HTML + CSS + JS in one file)
-└── README.md        ← This file
+---
 
-🌿 Git Branching Strategy
-BranchSection CoveredmainProduction — deployed to GitHub Pagesfeature/heroAnimated Hero sectionfeature/aboutAbout / Profile sectionfeature/modulesModules & Expertise flip cardsfeature/factsFun Facts & Superpowers cardsfeature/quotesQuote Wall carouselfeature/contactContact / Connect section
-All feature branches were created and merged into main by Naledi Reed.
+## ✨ Features
 
-👩‍💻 Project Completion
-TaskCompleted BySocial Engineering session plan (Milestone 1)Naledi ReedClaude AI system prompt designNaledi ReedFull website code (HTML, CSS, JavaScript)Naledi Reed via Claude ArtifactsAnimated SVG avatar designNaledi Reed via Claude ArtifactsGitHub repository setup & configurationNaledi ReedGitHub Pages deploymentNaledi ReedGit branching strategy & commit historyNaledi ReedQR code generationNaledi ReedREADME documentationNaledi ReedMilestone 2 presentation preparationNaledi Reed
+| Section | Description |
+|---|---|
+| 🎬 **Animated Hero** | Full-screen particle canvas, floating SVG avatar, typewriter tagline, animated name reveal |
+| 📊 **Stats Strip** | Scroll-triggered counting animation (modules, years, students, conferences) |
+| 👤 **About / Profile** | Typing effect bio, glowing card, personality badge icons |
+| 📚 **Modules & Expertise** | 6 hover-to-flip cards revealing module details |
+| 🎉 **Fun Facts & Superpowers** | 6 click-to-flip interactive reveal cards |
+| 💬 **Quote Wall** | 5-quote auto-rotating carousel with navigation dots and arrows |
+| 📍 **Contact / Connect** | Office hours, location, department info, QR code |
 
-👥 Group Participation Record
-As required by the project brief, non-participating members are recorded below.
-MemberRole AssignedParticipatedNaledi ReedProject Manager & GitHub/Deployment Lead✅ Yes — completed entire projectBoipelo PilaneContent Lead (Social Engineering)❌ Did not participateOfentse MaganedisaContent Lead (AI Prompt Engineering)❌ Did not participateOmphile RamatsetseUI / Animation Lead❌ Did not participateKgothatso ModiseDev Lead❌ Did not participateKoena SeopaQA / Accessibility Lead❌ Did not participateThendo Hakhethi RatshitangaDocumentation Lead❌ Did not participateSamahlobo NtombelaEthics & Content Lead❌ Did not participate
+---
 
-⚙️ Claude AI Prompt Used
+## 🛠️ Tech Stack
+
+| Tool | Purpose | Cost |
+|---|---|---|
+| **Claude.ai** | AI code generation via Artifacts | Free |
+| **GitHub** | Version control & collaboration | Free |
+| **GitHub Pages** | Static site hosting | Free |
+| **QR Code Generator** | qr-code-generator.com | Free |
+| **VS Code** | Local editing | Free |
+
+---
+
+## 📁 Repository Structure
+
+```
+INL261/
+├── index.html          ← Complete single-page portfolio (all HTML + CSS + JS)
+└── README.md           ← This file
+```
+
+---
+
+## 🌿 Git Branching Strategy
+
+| Branch | Owner | Section |
+|---|---|---|
+| `main` | Naledi Reed | Production — merged, tested code only |
+| `feature/hero` | Omphile Ramatsetse | Animated Hero section |
+| `feature/about` | Boipelo Pilane | About / Profile section |
+| `feature/modules` | Ofentse Maganedisa | Modules & Expertise |
+| `feature/facts` | Kgothatso Modise | Fun Facts & Superpowers |
+| `feature/quotes` | Thendo Hakhethi Ratshitanga | Quote Wall carousel |
+| `feature/contact` | Samahlobo Ntombela | Contact / Connect section |
+
+---
+
+## 👥 Team
+
+| Member | Role |
+|---|---|
+| Naledi Reed | Project Manager & GitHub/Deployment Lead |
+---
+
+## 🚀 Deployment
+
+This site is deployed via **GitHub Pages** from the `main` branch.  
+Every push to `main` triggers an automatic redeploy.
+
+**To view locally:** Download `index.html` and open it in any browser — no server required.
+
+---
+
+## ⚙️ Claude Prompt Used
+
+```
 You are an experienced front-end web developer. Create a complete, single-file 
 animated portfolio website for Belgium Campus iTversity lecturer Mr. Reason Sithole.
 
 Requirements:
 - Six sections: Hero, About, Modules & Expertise, Fun Facts, Quote Wall, Contact
-- CSS particle canvas animation in hero, floating animated SVG avatar (no real photos)
-- Typing effect bio, CSS 3D flip cards for modules, click-reveal for facts
-- Auto-rotating quote carousel with navigation, animated sticky navbar
-- Fully responsive: mobile, tablet, desktop using CSS media queries
-- Dark navy (#0A1628) and electric teal (#00C9A7) colour scheme
-- All code in one self-contained index.html file — no external dependencies
+- CSS particle animation in hero, SVG animated avatar (no real photos)
+- Typing effect bio, flip cards for modules, click-reveal for facts
+- Auto-rotating quote carousel, animated nav bar
+- Fully responsive (mobile, tablet, desktop)
+- Dark navy and teal colour scheme
+- All code in one self-contained index.html file
+```
 
-♿ Accessibility
+---
 
-Semantic HTML5 landmark elements (nav, section, footer)
-ARIA labels on all interactive buttons
-Sufficient colour contrast ratios (teal on navy)
-Keyboard-navigable links and buttons
-Fully responsive across all viewport sizes (375px – 1440px+)
+## ♿ Accessibility
 
+- Semantic HTML5 structure
+- ARIA labels on interactive buttons
+- Sufficient colour contrast ratios
+- Keyboard-navigable (tab-accessible buttons and links)
+- Responsive across all screen sizes
 
-📄 Academic Integrity Statement
-This project uses Claude AI as a code generation tool as explicitly required and permitted by the INL261 module brief. All prompts were written by Naledi Reed. All design decisions, content, structure, and deployment were executed by Naledi Reed. The use of AI tools is fully disclosed in both this README and the Milestone 1 project plan report.
+---
 
-INL261 — Innovation & Leadership | Belgium Campus iTversity | 2026
-Submitted by: Naledi Reed (Project Manager & sole contributor — Milestone 2)
+## 📄 License
+
+Built for educational purposes — INL261, Belgium Campus iTversity, 2026.  
+Content represents Mr. Reason Sithole's professional profile with consent.
