@@ -6,10 +6,19 @@ This is a fully animated, responsive single-page portfolio website built for Mr.
 
 
 ✨ Website Features
-SectionDescription🎬 Animated HeroFull-screen particle canvas background, floating SVG avatar of Mr. Sithole, typewriter tagline, animated name reveal📊 Stats StripScroll-triggered counting animation — modules, years, students, conferences👤 About / ProfileTyping effect bio, glowing teal card, personality badge icons with hover📚 Modules & Expertise6 CSS 3D hover-to-flip cards revealing full module details🎉 Fun Facts & Superpowers6 click-to-flip interactive reveal cards💬 Quote Wall5-quote auto-rotating carousel with dot navigation and arrow controls📍 Contact / ConnectOffice hours, location, department info, QR code placeholder
+🎬 Animated Hero - Full-screen particle canvas background, floating SVG avatar of Mr. Sithole, typewriter tagline, animated name reveal
+📊 Stats Strip - Scroll-triggered counting animation — modules, years, students, conferences
+👤 About / Profile - Typing effect bio, glowing teal card, personality badge icons with hover
+📚 Modules & Expertise - 6 CSS 3D hover-to-flip cards revealing full module details
+🎉 Fun Facts & Superpowers - 6 click-to-flip interactive reveal cards
+💬 Quote Wall - 5-quote auto-rotating carousel with dot navigation and arrow controls
+📍 Contact / Connect - Office hours, location, department info, QR code placeholder
 
 🛠️ Tech Stack
-ToolPurposeCostClaude.ai (free tier)AI co-pilot — all code generated via ArtifactsFreeGitHubVersion control & repository hostingFreeGitHub PagesStatic site hosting at naledi-reed.github.ioFreeQR Code Generatorqr-code-generator.com — links to live siteFree
+Claude.ai (free tier) : AI co-pilot — all code generated via ArtifactsFree
+GitHub : Version control & repository hostingFree
+GitHub Pages : Static site hosting at naledi-reed.github.ioFree
+QR Code Generator : qr-code-generator.com — links to live siteFree
 
 📁 Repository Structure
 INL261-Milestone-2/
