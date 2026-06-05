@@ -70,6 +70,7 @@ INL261/
 | Member | Role |
 |---|---|
 | Naledi Reed | Project Manager & GitHub/Deployment Lead |
+| Samahlobo Ntombela | Ethics & Content Lead |
 ---
 
 ## 🚀 Deployment
