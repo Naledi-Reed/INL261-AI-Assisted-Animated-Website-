@@ -4,7 +4,7 @@
 **Module:** INL261 — Innovation & Leadership  
 **Institution:** Belgium Campus iTversity  
 **Project:** Milestone 2 — Animated Website Build, Deploy & Demonstrate  
-**Live URL:** [https://naledi-reed.github.io/INL261-Milestone-2](https://naledi-reed.github.io/INL261-Milestone-2)  
+**Live URL:** https://naledi-reed.github.io/INL261-AI-Assisted-Animated-Website-/
 **Academic Year:** 2026
 
 ---
