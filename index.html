@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mr. Reason Sithole | Belgium Campus iTversity</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#00c9a7;--teal-d:#00a388;--teal-glow:rgba(0,201,167,.25);
+  --navy:#0a1628;--navy2:#111f35;--navy3:#1a2f4a;--card:#152238;
+  --gold:#f5a623;--txt:#e8f0fe;--txtm:#8aa8c8;--txtd:#4a6a8a;
+  --r:16px;--mono:'Space Mono',monospace;--disp:'Syne',sans-serif;
+  --shadow:0 12px 40px rgba(0,0,0,.5);
+}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--txt);font-family:var(--disp);overflow-x:hidden;line-height:1.7}
+a{color:var(--teal);text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2.5rem;background:rgba(10,22,40,.85);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,201,167,.12);transition:background .3s}
+nav.scrolled{background:rgba(10,22,40,.98)}
+.nlogo{font-family:var(--mono);font-size:1.5rem;font-weight:700;letter-spacing:-1px}
+.nlogo span{color:var(--teal)}
+.nlinks{list-style:none;display:flex;gap:.2rem}
+.nlinks a{display:block;padding:.4rem .95rem;border-radius:30px;color:var(--txtm);font-size:.88rem;font-weight:700;letter-spacing:.5px;transition:all .2s}
+.nlinks a:hover,.nlinks a.act{color:var(--teal);background:rgba(0,201,167,.1)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.burger span{display:block;width:26px;height:2px;background:var(--txt);border-radius:2px;transition:all .3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding-top:80px;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,201,167,.08) 0%,transparent 60%)}
+canvas#ptc{position:absolute;inset:0;z-index:0}
+.hwrap{position:relative;z-index:2;display:flex;align-items:center;gap:5rem;max-width:1140px;padding:2rem 2rem 4rem;flex-wrap:wrap;justify-content:center}
+.avbox{flex-shrink:0;animation:float 5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+.avsvg{width:260px;height:280px;filter:drop-shadow(0 0 36px rgba(0,201,167,.35))}
+.avglow{fill:rgba(0,201,167,.06);stroke:var(--teal);stroke-width:1.2;stroke-dasharray:6 4;animation:spin 22s linear infinite}
+@keyframes spin{to{stroke-dashoffset:-200}}
+.avbody{fill:#1a4a7a}.avtie{fill:var(--teal)}.avneck,.avhead,.avear{fill:#c47e3a}.avhair{fill:#1c1c1c}
+.aveye{fill:#fff}.avpupil{fill:#111}.avgleam{fill:#fff}
+.avbrow{stroke:#1c1c1c;fill:none;stroke-width:2.5;stroke-linecap:round}
+.avnose{stroke:#9a5e2a;fill:none;stroke-width:1.8;stroke-linecap:round}
+.avsmile{stroke:#7a3e10;fill:none;stroke-width:2.8;stroke-linecap:round}
+.avglass{stroke:var(--teal);fill:none;stroke-width:2.2;stroke-linecap:round}
+.avbadgebg{fill:var(--gold)}.avbadgetxt{font-family:var(--mono);font-size:6.5px;fill:#1a1a1a;font-weight:700;letter-spacing:.6px}
+.avcol{stroke:#fff;stroke-width:2.5;fill:none}
+.aveye{animation:blink 5s ease-in-out infinite}
+@keyframes blink{0%,88%,100%{ry:8}93%{ry:1}}
+.avbadgeg{animation:badge 3s ease-in-out infinite;transform-origin:165px 52px}
+@keyframes badge{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(-6deg) scale(1.09)}}
+.htxt{flex:1;min-width:280px}
+.hpre{font-family:var(--mono);font-size:.8rem;color:var(--teal);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:.8rem;opacity:0;animation:fadeUp .6s .3s forwards}
+.hh1{font-size:clamp(3rem,7vw,5.8rem);font-weight:800;line-height:.95;margin-bottom:1.4rem;display:flex;flex-direction:column}
+.rl{display:inline-block;opacity:0;transform:translateY(44px);animation:lineUp .75s cubic-bezier(.22,1,.36,1) forwards}
+.rl:nth-child(1){animation-delay:.5s}.rl:nth-child(2){animation-delay:.75s;color:var(--teal)}
+@keyframes lineUp{to{opacity:1;transform:translateY(0)}}
+.htag{font-family:var(--mono);font-size:1.05rem;color:var(--txtm);margin-bottom:2rem;min-height:1.8rem}
+.hbtns{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .6s 1.3s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.78rem 1.9rem;border-radius:50px;font-family:var(--disp);font-weight:700;font-size:.92rem;border:none;cursor:pointer;transition:all .25s}
+.btnp{background:var(--teal);color:#0a1628}.btnp:hover{background:var(--teal-d);transform:translateY(-2px);box-shadow:0 0 24px var(--teal-glow);color:#0a1628}
+.btno{background:transparent;color:var(--txt);border:1.5px solid rgba(255,255,255,.2)}.btno:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px)}
+.scue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--txtd);animation:fadeUp 1s 1.8s both}
+.cueline{width:1.5px;height:42px;background:linear-gradient(to bottom,var(--teal),transparent);animation:cue 2s ease-in-out infinite}
+@keyframes cue{0%,100%{height:42px;opacity:1}50%{height:20px;opacity:.4}}
+
+/* SECTIONS */
+.sec{padding:6rem 1.5rem}.secdark{background:var(--navy2)}
+.wrap{max-width:1120px;margin:0 auto}
+.stitle{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;text-align:center;margin-bottom:.5rem}
+.stitle em{color:var(--teal);font-style:normal}
+.ssub{text-align:center;color:var(--txtm);margin-bottom:3.5rem;font-size:1rem}
+.rv{opacity:0;transform:translateY(32px);transition:opacity .65s ease,transform .65s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}.d4{transition-delay:.48s}
+
+/* ABOUT */
+.agrid{display:grid;grid-template-columns:1fr 2fr 1fr;gap:1.5rem;align-items:start}
+.acard{background:var(--card);border-radius:var(--r);border:1px solid rgba(0,201,167,.13);padding:2rem;transition:transform .3s,box-shadow .3s}
+.acard:hover{transform:translateY(-6px);box-shadow:var(--shadow),0 0 30px var(--teal-glow)}
+.aico{font-size:2.6rem;margin-bottom:.75rem}
+.acard h3{color:var(--teal);font-size:1.05rem;margin-bottom:.5rem}
+.acard p{color:var(--txtm);font-size:.9rem;line-height:1.6}
+.abio{background:var(--card);border-radius:var(--r);border:1.5px solid var(--teal);padding:2.5rem;box-shadow:0 0 40px rgba(0,201,167,.15)}
+.biowrap{min-height:5.5rem;margin-bottom:1.5rem}
+.biop{font-size:1rem;line-height:1.8;color:var(--txt)}
+.cur{color:var(--teal);animation:blinkcur .8s step-end infinite}
+@keyframes blinkcur{50%{opacity:0}}
+.bdgs{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.bdg{background:rgba(0,201,167,.1);color:var(--teal);border:1px solid rgba(0,201,167,.28);border-radius:30px;padding:.35rem .95rem;font-size:.82rem;font-weight:700;transition:all .2s;cursor:default}
+.bdg:hover{background:var(--teal);color:#0a1628;transform:scale(1.06)}
+
+/* STATS */
+.stats{background:var(--navy3);padding:3rem 1.5rem;border-top:1px solid rgba(0,201,167,.1);border-bottom:1px solid rgba(0,201,167,.1)}
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:900px;margin:0 auto;text-align:center}
+.snum{font-size:2.8rem;font-weight:800;color:var(--teal);line-height:1}
+.slbl{font-family:var(--mono);font-size:.75rem;color:var(--txtm);letter-spacing:1.5px;text-transform:uppercase;margin-top:.4rem}
+
+/* MODULES */
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.fc{perspective:1000px;height:210px;cursor:pointer}
+.fcin{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.fc:hover .fcin{transform:rotateY(180deg)}
+.fcf,.fcb{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--r);padding:1.8rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.5rem}
+.fcf{background:var(--card);border:1px solid rgba(0,201,167,.13)}
+.fcb{background:linear-gradient(135deg,var(--teal-d),#005c4b);transform:rotateY(180deg)}
+.ci{font-size:2.2rem}
+.fcf h3{color:var(--teal);font-size:1.05rem}.fcf p{color:var(--txtm);font-size:.83rem}
+.fcb h3{font-size:.98rem;font-weight:700;color:#fff;margin-bottom:.3rem}
+.fcb p{font-size:.82rem;line-height:1.5;color:rgba(255,255,255,.9)}
+.clvl{margin-top:.5rem;background:rgba(0,0,0,.25);border-radius:20px;padding:.2rem .8rem;font-size:.72rem;font-weight:700;color:#fff}
+
+/* FACTS */
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.fact{position:relative;height:190px;cursor:pointer;perspective:1000px}
+.factf,.factb{position:absolute;inset:0;border-radius:var(--r);padding:2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.6rem;backface-visibility:hidden;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.factf{background:var(--card);border:1px solid rgba(245,166,35,.2)}
+.factb{background:linear-gradient(135deg,#1a4a7a,#0d1b2a);border:1px solid var(--teal);transform:rotateY(180deg)}
+.fact.flip .factf{transform:rotateY(180deg)}.fact.flip .factb{transform:rotateY(0)}
+.fe{font-size:2.6rem}.factf p{font-size:.92rem;font-weight:700;color:var(--gold)}.factb p{font-size:.88rem;color:var(--txt);line-height:1.5}.ch{font-size:.72rem;color:var(--txtd)}
+
+/* QUOTES */
+.qbox{max-width:800px;margin:0 auto}
+.qtrack{position:relative;min-height:220px}
+.qslide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.2rem;padding:1rem;opacity:0;transform:translateX(40px);transition:all .5s ease;pointer-events:none}
+.qslide.act{opacity:1;transform:translateX(0);pointer-events:auto}
+.qslide.exit{opacity:0;transform:translateX(-40px)}
+.qmark{font-family:Georgia,serif;font-size:6rem;color:var(--teal);line-height:.4;opacity:.55}
+.qslide blockquote{font-size:clamp(1.05rem,2.5vw,1.38rem);font-style:italic;line-height:1.75;color:var(--txt)}
+.qslide cite{font-family:var(--mono);font-size:.88rem;color:var(--teal);font-style:normal;font-weight:700}
+.qctrl{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:15rem}
+.qbtn{background:rgba(0,201,167,.1);border:1.5px solid rgba(0,201,167,.3);color:var(--teal);border-radius:50%;width:46px;height:46px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.qbtn:hover{background:var(--teal);color:#0a1628}
+.qdots{display:flex;gap:8px}
+.qdot{width:8px;height:8px;border-radius:50%;background:rgba(0,201,167,.25);cursor:pointer;transition:all .25s}
+.qdot.act{background:var(--teal);transform:scale(1.35)}
+
+/* CONTACT */
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2.5rem}
+.ccard{background:var(--card);border-radius:var(--r);border:1px solid rgba(0,201,167,.13);padding:2.5rem 2rem;text-align:center;transition:transform .3s,box-shadow .3s}
+.ccard:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.ccard.star{border-color:var(--teal);box-shadow:0 0 40px rgba(0,201,167,.15)}
+.cico{font-size:2.6rem;display:block;margin-bottom:1rem}
+.ccard h3{color:var(--teal);font-size:1.05rem;margin-bottom:.75rem}
+.ccard p{color:var(--txtm);font-size:.88rem;margin-bottom:.5rem}
+.qrwrap{background:var(--card);border-radius:var(--r);border:1px solid rgba(0,201,167,.13);padding:2.5rem;text-align:center}
+.qrlbl{font-size:1rem;color:var(--txtm);margin-bottom:1.25rem}
+.qrinner{display:flex;flex-direction:column;align-items:center;gap:.9rem}
+.qrbox{width:130px;height:130px;background:#fff;border-radius:8px;padding:10px;display:flex;align-items:center;justify-content:center}
+.qrsvg{width:100%;color:#0a1628}
+.qrwrap p{color:var(--txtm);font-size:.88rem}
+.qrwrap code{background:rgba(0,201,167,.1);color:var(--teal);padding:.15rem .5rem;border-radius:4px;font-family:var(--mono);font-size:.82rem}
+
+/* FOOTER */
+footer{background:#060f1c;border-top:1px solid rgba(0,201,167,.1);padding:2.5rem 1.5rem;text-align:center}
+.ftlogo{font-family:var(--mono);font-size:1.8rem;font-weight:700;margin-bottom:.5rem}
+.ftlogo span{color:var(--teal)}
+footer p{color:var(--txtm);font-size:.88rem;margin:.25rem 0}
+footer .credit{font-size:.78rem;margin-top:.5rem;opacity:.7}
+
+/* RESPONSIVE */
+@media(max-width:960px){.agrid,.mgrid,.fgrid,.cgrid{grid-template-columns:repeat(2,1fr)}.sgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){
+  nav{padding:.9rem 1.25rem}
+  .nlinks{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,22,40,.98);padding:1rem;border-bottom:1px solid rgba(0,201,167,.15)}
+  .nlinks.open{display:flex}.burger{display:flex}
+  .hwrap{flex-direction:column;text-align:center;gap:2rem}.hbtns{justify-content:center}
+  .avsvg{width:210px;height:226px}.agrid{grid-template-columns:1fr}
+  .qctrl{margin-top:17rem}
+}
+@media(max-width:540px){.mgrid,.fgrid,.cgrid{grid-template-columns:1fr}.qctrl{margin-top:22rem}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nlogo">RS<span>.</span></div>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nlinks" id="nlinks">
+    <li><a href="#hero" class="act">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#modules">Modules</a></li>
+    <li><a href="#facts">Fun Facts</a></li>
+    <li><a href="#quotes">Quotes</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+<canvas id="ptc"></canvas>
+<div class="hwrap">
+  <div class="avbox">
+  <svg class="avsvg" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+    <circle class="avglow" cx="100" cy="115" r="92"/>
+    <rect class="avbody" x="52" y="145" width="96" height="72" rx="22"/>
+    <line class="avcol" x1="88" y1="145" x2="76" y2="162"/>
+    <line class="avcol" x1="112" y1="145" x2="124" y2="162"/>
+    <polygon class="avtie" points="88,145 112,145 106,180 100,172 94,180"/>
+    <rect class="avneck" x="87" y="120" width="26" height="28" rx="7"/>
+    <ellipse class="avear" cx="56" cy="95" rx="7" ry="11"/>
+    <ellipse class="avear" cx="144" cy="95" rx="7" ry="11"/>
+    <ellipse class="avhead" cx="100" cy="92" rx="44" ry="47"/>
+    <path class="avhair" d="M56 80 Q60 40 100 38 Q140 40 144 80 Q132 55 100 53 Q68 55 56 80Z"/>
+    <path class="avbrow" d="M75 78 Q83 73 91 78"/>
+    <path class="avbrow" d="M109 78 Q117 73 125 78"/>
+    <ellipse class="aveye" cx="83" cy="90" rx="8" ry="9"/>
+    <ellipse class="aveye" cx="117" cy="90" rx="8" ry="9"/>
+    <circle class="avpupil" cx="85" cy="91" r="4"/>
+    <circle class="avpupil" cx="119" cy="91" r="4"/>
+    <circle class="avgleam" cx="87" cy="88.5" r="1.7"/>
+    <circle class="avgleam" cx="121" cy="88.5" r="1.7"/>
+    <path class="avnose" d="M97 98 Q95 108 100 110 Q105 108 103 98"/>
+    <path class="avsmile" d="M85 117 Q100 128 115 117"/>
+    <rect class="avglass" x="72" y="83" width="22" height="15" rx="5"/>
+    <rect class="avglass" x="106" y="83" width="22" height="15" rx="5"/>
+    <line class="avglass" x1="94" y1="90" x2="106" y2="90"/>
+    <line class="avglass" x1="56" y1="90" x2="72" y2="90"/>
+    <line class="avglass" x1="128" y1="90" x2="144" y2="90"/>
+    <g class="avbadgeg">
+      <rect class="avbadgebg" x="137" y="38" width="56" height="24" rx="12"/>
+      <text class="avbadgetxt" x="165" y="54" text-anchor="middle">LECTURER</text>
+    </g>
+    <text x="22" y="60" font-size="14" style="animation:float 4s 1s ease-in-out infinite">💡</text>
+    <text x="162" y="148" font-size="12" style="animation:float 4s 2s ease-in-out infinite">🚀</text>
+    <text x="18" y="150" font-size="11" style="animation:float 4s .5s ease-in-out infinite">⭐</text>
+  </svg>
+  </div>
+  <div class="htxt">
+    <p class="hpre">Belgium Campus iTversity presents</p>
+    <h1 class="hh1">
+      <span class="rl">Mr. Reason</span>
+      <span class="rl">Sithole</span>
+    </h1>
+    <p class="htag" id="htype"></p>
+    <div class="hbtns">
+      <a href="#about" class="btn btnp">Meet Him</a>
+      <a href="#contact" class="btn btno">Connect ↓</a>
+    </div>
+  </div>
+</div>
+<div class="scue"><span>Scroll</span><div class="cueline"></div></div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="sgrid">
+    <div class="rv"><div class="snum" data-target="6">0</div><div class="slbl">Modules Taught</div></div>
+    <div class="rv d1"><div class="snum" data-target="8">0</div><div class="slbl">Years Experience</div></div>
+    <div class="rv d2"><div class="snum" data-target="400">0</div><div class="slbl">Students Mentored</div></div>
+    <div class="rv d3"><div class="snum" data-target="5">0</div><div class="slbl">African Conferences</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="sec">
+<div class="wrap">
+  <h2 class="stitle rv">About <em>Mr. Sithole</em></h2>
+  <p class="ssub rv">Educator · Innovator · Tech Mentor</p>
+  <div class="agrid">
+    <div class="acard rv">
+      <div class="aico">🎓</div>
+      <h3>Academic Background</h3>
+      <p>BSc Computer Science &amp; Postgraduate Diploma in Education from the University of Pretoria. Bridges theory and industry practice in every session.</p>
+    </div>
+    <div class="abio rv d1">
+      <div class="biowrap"><p class="biop" id="biop"></p><span class="cur">|</span></div>
+      <div class="bdgs">
+        <span class="bdg">🔥 Innovator</span>
+        <span class="bdg">💡 Mentor</span>
+        <span class="bdg">🚀 Tech Lead</span>
+        <span class="bdg">🎯 Problem Solver</span>
+        <span class="bdg">♟ Chess Mind</span>
+      </div>
+    </div>
+    <div class="acard rv d2">
+      <div class="aico">🏫</div>
+      <h3>Department</h3>
+      <p>Information Technology, Belgium Campus iTversity. Dedicated to hands-on, industry-aligned education that prepares graduates from day one.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- MODULES -->
+<section id="modules" class="sec secdark">
+<div class="wrap">
+  <h2 class="stitle rv">Modules &amp; <em>Expertise</em></h2>
+  <p class="ssub rv">Hover each card to reveal details</p>
+  <div class="mgrid">
+    <div class="fc rv"><div class="fcin"><div class="fcf"><div class="ci">💻</div><h3>INL261</h3><p>Innovation &amp; Leadership</p></div><div class="fcb"><h3>Innovation &amp; Leadership</h3><p>AI-assisted development, team collaboration, and real-world project delivery using Claude and GitHub Pages.</p><span class="clvl">3rd Year</span></div></div></div>
+    <div class="fc rv d1"><div class="fcin"><div class="fcf"><div class="ci">🌐</div><h3>WEB301</h3><p>Advanced Web Development</p></div><div class="fcb"><h3>Advanced Web Dev</h3><p>Full-stack development, REST APIs, responsive design, and production-grade deployment pipelines.</p><span class="clvl">3rd Year</span></div></div></div>
+    <div class="fc rv d2"><div class="fcin"><div class="fcf"><div class="ci">🔒</div><h3>SEC201</h3><p>Cybersecurity Fundamentals</p></div><div class="fcb"><h3>Cybersecurity</h3><p>Ethical hacking, network security, threat modelling, and security-first development practices.</p><span class="clvl">2nd Year</span></div></div></div>
+    <div class="fc rv d1"><div class="fcin"><div class="fcf"><div class="ci">🗃️</div><h3>DBS202</h3><p>Database Systems</p></div><div class="fcb"><h3>Database Systems</h3><p>Relational design, SQL, normalisation, transactions, and intro to NoSQL for scalable data management.</p><span class="clvl">2nd Year</span></div></div></div>
+    <div class="fc rv d2"><div class="fcin"><div class="fcf"><div class="ci">🤖</div><h3>AID301</h3><p>AI &amp; Data Concepts</p></div><div class="fcb"><h3>AI &amp; Data</h3><p>Machine learning basics, prompt engineering, AI ethics, and practical AI tool integration workflows.</p><span class="clvl">3rd Year</span></div></div></div>
+    <div class="fc rv d3"><div class="fcin"><div class="fcf"><div class="ci">📱</div><h3>MOB201</h3><p>Mobile App Development</p></div><div class="fcb"><h3>Mobile Dev</h3><p>Cross-platform mobile with React Native, UI/UX principles, and app store deployment for iOS &amp; Android.</p><span class="clvl">2nd Year</span></div></div></div>
+  </div>
+</div>
+</section>
+
+<!-- FUN FACTS -->
+<section id="facts" class="sec">
+<div class="wrap">
+  <h2 class="stitle rv">Fun Facts &amp; <em>Superpowers</em></h2>
+  <p class="ssub rv">Click each card to reveal</p>
+  <div class="fgrid">
+    <div class="fact rv" onclick="this.classList.toggle('flip')"><div class="factf"><span class="fe">🦸</span><p>Superpower #1</p><span class="ch">Click to reveal</span></div><div class="factb"><span class="fe">🦸</span><p>Can explain any complex IT concept using a football analogy — and it always makes perfect sense!</p></div></div>
+    <div class="fact rv d1" onclick="this.classList.toggle('flip')"><div class="factf"><span class="fe">☕</span><p>Fun Fact #1</p><span class="ch">Click to reveal</span></div><div class="factb"><span class="fe">☕</span><p>Has never started a lecture without rooibos tea. Students consider it a module requirement.</p></div></div>
+    <div class="fact rv d2" onclick="this.classList.toggle('flip')"><div class="factf"><span class="fe">♟</span><p>Fun Fact #2</p><span class="ch">Click to reveal</span></div><div class="factb"><span class="fe">♟</span><p>A competitive chess player who believes every coding problem is just a chess match in disguise.</p></div></div>
+    <div class="fact rv d1" onclick="this.classList.toggle('flip')"><div class="factf"><span class="fe">🔧</span><p>Superpower #2</p><span class="ch">Click to reveal</span></div><div class="factb"><span class="fe">🔧</span><p>Debugs broken student code in under 60 seconds. Students call it "The Sithole Stare" ™</p></div></div>
+    <div class="fact rv d2" onclick="this.classList.toggle('flip')"><div class="factf"><span class="fe">✈️</span><p>Fun Fact #3</p><span class="ch">Click to reveal</span></div><div class="factb"><span class="fe">✈️</span><p>Has attended tech conferences in 5 African countries and brings back local coding stickers for students.</p></div></div>
+    <div class="fact rv d3" onclick="this.classList.toggle('flip')"><div class="factf"><span class="fe">💡</span><p>Superpower #3</p><span class="ch">Click to reveal</span></div><div class="factb"><span class="fe">💡</span><p>Turns 11 PM panic messages into calm, structured debugging sessions — right before every deadline.</p></div></div>
+  </div>
+</div>
+</section>
+
+<!-- QUOTES -->
+<section id="quotes" class="sec secdark">
+<div class="wrap">
+  <h2 class="stitle rv">Words of <em>Wisdom</em></h2>
+  <p class="ssub rv">Mr. Sithole's favourite lessons — one at a time</p>
+  <div class="qbox rv">
+    <div class="qtrack" id="qtrack">
+      <div class="qslide act"><div class="qmark">"</div><blockquote>Google will always be faster than your memory. What matters is that you understand well enough to ask the right question.</blockquote><cite>— Mr. Reason Sithole</cite></div>
+      <div class="qslide"><div class="qmark">"</div><blockquote>Your first version doesn't have to be perfect — it just has to exist. Ship it, improve it, and ship it again.</blockquote><cite>— Mr. Reason Sithole</cite></div>
+      <div class="qslide"><div class="qmark">"</div><blockquote>The best developers aren't the ones who never make mistakes — they're the ones who read the error message first.</blockquote><cite>— Mr. Reason Sithole</cite></div>
+      <div class="qslide"><div class="qmark">"</div><blockquote>A commit a day keeps the deadline panic away. Version control is not optional — it is professionalism.</blockquote><cite>— Mr. Reason Sithole</cite></div>
+      <div class="qslide"><div class="qmark">"</div><blockquote>You are not studying IT to get a job. You are studying IT to build solutions that didn't exist before you.</blockquote><cite>— Mr. Reason Sithole</cite></div>
+    </div>
+    <div class="qctrl">
+      <button class="qbtn" id="qprev">&#8592;</button>
+      <div class="qdots" id="qdots"></div>
+      <button class="qbtn" id="qnext">&#8594;</button>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec">
+<div class="wrap">
+  <h2 class="stitle rv">Connect with <em>Mr. Sithole</em></h2>
+  <p class="ssub rv">Reach out through Belgium Campus official channels</p>
+  <div class="cgrid">
+    <div class="ccard rv"><span class="cico">⏰</span><h3>Office Hours</h3><p><strong style="color:var(--txt)">Mon – Thu</strong><br/>08:00 – 16:00</p><p><strong style="color:var(--txt)">Friday</strong><br/>08:00 – 13:00</p></div>
+    <div class="ccard star rv d1" style="display:flex;flex-direction:column;align-items:center"><span class="cico">📍</span><h3>Location</h3><p>Belgium Campus iTversity<br/>Sandton, Johannesburg<br/>South Africa</p><a href="#hero" class="btn btnp" style="margin-top:1.25rem">Back to Top ↑</a></div>
+    <div class="ccard rv d2"><span class="cico">🏫</span><h3>Department</h3><p><strong style="color:var(--txt)">Information Technology</strong><br/>Belgium Campus iTversity</p><p style="font-size:.8rem;font-style:italic;margin-top:.5rem">For academic queries use the official student portal.</p></div>
+  </div>
+  <div class="qrwrap rv">
+    <p class="qrlbl">📱 Scan to visit this portfolio live</p>
+    <div class="qrinner">
+      <div class="qrbox">
+        <svg class="qrsvg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="34" height="34" rx="3" fill="none" stroke="currentColor" stroke-width="4"/>
+          <rect x="13" y="13" width="17" height="17" rx="1" fill="currentColor"/>
+          <rect x="62" y="4" width="34" height="34" rx="3" fill="none" stroke="currentColor" stroke-width="4"/>
+          <rect x="71" y="13" width="17" height="17" rx="1" fill="currentColor"/>
+          <rect x="4" y="62" width="34" height="34" rx="3" fill="none" stroke="currentColor" stroke-width="4"/>
+          <rect x="13" y="71" width="17" height="17" rx="1" fill="currentColor"/>
+          <rect x="44" y="4" width="8" height="8" fill="currentColor"/><rect x="54" y="4" width="8" height="8" fill="currentColor"/>
+          <rect x="44" y="14" width="8" height="8" fill="currentColor"/><rect x="54" y="24" width="8" height="8" fill="currentColor"/>
+          <rect x="44" y="24" width="8" height="8" fill="currentColor"/><rect x="4" y="44" width="8" height="8" fill="currentColor"/>
+          <rect x="14" y="44" width="8" height="8" fill="currentColor"/><rect x="4" y="54" width="8" height="8" fill="currentColor"/>
+          <rect x="24" y="54" width="8" height="8" fill="currentColor"/><rect x="44" y="44" width="8" height="8" fill="currentColor"/>
+          <rect x="54" y="44" width="8" height="8" fill="currentColor"/><rect x="44" y="54" width="8" height="8" fill="currentColor"/>
+          <rect x="64" y="44" width="8" height="8" fill="currentColor"/><rect x="74" y="44" width="8" height="8" fill="currentColor"/>
+          <rect x="84" y="44" width="8" height="8" fill="currentColor"/><rect x="64" y="54" width="8" height="8" fill="currentColor"/>
+          <rect x="84" y="54" width="8" height="8" fill="currentColor"/><rect x="64" y="64" width="8" height="8" fill="currentColor"/>
+          <rect x="74" y="64" width="8" height="8" fill="currentColor"/><rect x="64" y="74" width="8" height="8" fill="currentColor"/>
+          <rect x="84" y="74" width="8" height="8" fill="currentColor"/><rect x="74" y="84" width="8" height="8" fill="currentColor"/>
+          <rect x="84" y="84" width="8" height="8" fill="currentColor"/><rect x="44" y="64" width="8" height="8" fill="currentColor"/>
+          <rect x="54" y="74" width="8" height="8" fill="currentColor"/><rect x="44" y="84" width="8" height="8" fill="currentColor"/>
+          <rect x="54" y="84" width="8" height="8" fill="currentColor"/><rect x="14" y="64" width="8" height="8" fill="currentColor"/>
+          <rect x="24" y="74" width="8" height="8" fill="currentColor"/><rect x="34" y="84" width="8" height="8" fill="currentColor"/>
+          <rect x="34" y="64" width="8" height="8" fill="currentColor"/>
+        </svg>
+      </div>
+      <p>Generate your real QR at <a href="https://www.qr-code-generator.com" target="_blank" style="color:var(--teal)">qr-code-generator.com</a></p>
+      <p>pointing to: <code>https://naledi-reed.github.io/INL261-Milestone-2</code></p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ftlogo">RS<span>.</span></div>
+  <p>Mr. Reason Sithole &mdash; Information Technology, Belgium Campus iTversity</p>
+  <p class="credit">Built with Claude AI &middot; GitHub Pages &middot; INL261 Group Project 2026 &nbsp;|&nbsp; Naledi Reed &amp; Group</p>
+</footer>
+
+<script>
+/* PARTICLES */
+(function(){
+  const c=document.getElementById('ptc'),ctx=c.getContext('2d');
+  let W,H,pts=[];
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight}
+  resize();window.addEventListener('resize',resize);
+  function Pt(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*1.6+.4;this.a=Math.random()}
+  for(let i=0;i<90;i++)pts.push(new Pt());
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(0,201,167,'+p.a*.6+')';ctx.fill()});
+    pts.forEach((a,i)=>{for(let j=i+1;j<pts.length;j++){const b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<110){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle='rgba(0,201,167,'+(0.15*(1-d/110))+')';ctx.lineWidth=.6;ctx.stroke()}}});
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* NAV */
+const nav=document.getElementById('nav'),burger=document.getElementById('burger'),nlinks=document.getElementById('nlinks');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>40);
+  document.querySelectorAll('.nlinks a').forEach(a=>{const s=document.querySelector(a.getAttribute('href'));if(!s)return;const r=s.getBoundingClientRect();a.classList.toggle('act',r.top<=80&&r.bottom>80)});
+});
+burger.addEventListener('click',()=>{burger.classList.toggle('open');nlinks.classList.toggle('open')});
+nlinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('open');nlinks.classList.remove('open')}));
+
+/* HERO TYPEWRITER */
+(function(){
+  const el=document.getElementById('htype');
+  const texts=["Educator · Innovator · Mentor","INL261 · WEB301 · SEC201 · AID301","Making IT real since day one..."];
+  let ti=0,ci=0,del=false;
+  function tick(){
+    const t=texts[ti];
+    if(!del){el.textContent=t.slice(0,ci+1);ci++;if(ci===t.length){del=true;setTimeout(tick,2200);return}}
+    else{el.textContent=t.slice(0,ci-1);ci--;if(ci===0){del=false;ti=(ti+1)%texts.length;setTimeout(tick,400);return}}
+    setTimeout(tick,del?42:72);
+  }
+  setTimeout(tick,1600);
+})();
+
+/* BIO TYPEWRITER */
+(function(){
+  const el=document.getElementById('biop');
+  const txt="Mr. Reason Sithole is a passionate IT educator at Belgium Campus iTversity who transforms complex technology concepts into real-world skills. His teaching philosophy centres on building through doing — students leave his classes with live projects, not just theory.";
+  let i=0,started=false;
+  const obs=new IntersectionObserver(([e])=>{if(e.isIntersecting&&!started){started=true;obs.disconnect();go()}},{threshold:.4});
+  obs.observe(document.getElementById('about'));
+  function go(){if(i<txt.length){el.textContent+=txt[i++];setTimeout(go,22)}}
+})();
+
+/* SCROLL REVEAL */
+const rvObs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
+
+/* COUNTERS */
+const cntObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const el=e.target.querySelector('[data-target]');if(!el||el.dataset.counted)return;el.dataset.counted='1';const target=+el.dataset.target,step=target/96;let cur=0;const t=setInterval(()=>{cur+=step;el.textContent=cur>=target?target+'+':Math.floor(cur);if(cur>=target)clearInterval(t)},16)}})},{threshold:.4});
+document.querySelectorAll('.sgrid > div').forEach(el=>cntObs.observe(el));
+
+/* QUOTES */
+(function(){
+  const slides=document.querySelectorAll('.qslide'),dotsC=document.getElementById('qdots');
+  let cur=0,timer;
+  slides.forEach((_,i)=>{const d=document.createElement('div');d.className='qdot'+(i===0?' act':'');d.onclick=()=>go(i);dotsC.appendChild(d)});
+  function go(n){slides[cur].classList.remove('act');slides[cur].classList.add('exit');setTimeout(()=>slides[cur].classList.remove('exit'),500);cur=((n%slides.length)+slides.length)%slides.length;slides[cur].classList.add('act');dotsC.querySelectorAll('.qdot').forEach((d,i)=>d.classList.toggle('act',i===cur));resetTimer()}
+  function resetTimer(){clearInterval(timer);timer=setInterval(()=>go(cur+1),5000)}
+  document.getElementById('qprev').onclick=()=>go(cur-1);
+  document.getElementById('qnext').onclick=()=>go(cur+1);
+  resetTimer();
+})();
+</script>
+</body>
+</html>
